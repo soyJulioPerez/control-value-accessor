@@ -15,6 +15,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class CarOneComponent implements OnInit, ControlValueAccessor {
   value: string;
+  onChange: () => void;
+  onTouched: () => void;
+  isDisabled: boolean;
 
   constructor() { }
 
@@ -25,12 +28,12 @@ export class CarOneComponent implements OnInit, ControlValueAccessor {
     this.value = value ? value : '';
   }
   registerOnChange(fn: any): void {
-    // throw new Error('Method not implemented.');
+    this.onChange = fn;
   }
   registerOnTouched(fn: any): void {
-    // throw new Error('Method not implemented.');
+    this.onTouched = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
-    // throw new Error('Method not implemented.');
+    this.isDisabled = isDisabled;
   }
 }
