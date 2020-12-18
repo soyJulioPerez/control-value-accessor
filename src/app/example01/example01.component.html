@@ -1,1 +1,51 @@
-<p>example01 works!</p>
+<div class="card">
+  <div class="card-header">
+    Example01: Basic Control Value Accesor
+  </div>
+
+  <div class="card-body row">
+    <div class="col-8 border-right">
+      <form novalidate [formGroup]="miForm">
+        <div class="form-group row mb-2">
+          <label for="owner" class="col-md-3 col-form-label">Owner</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control"
+              required
+              formControlName="owner"
+              [ngClass]="{'is-invalid': (owner.touched || owner.dirty) && !owner.valid}">
+              <span class="text-danger" *ngIf="owner.errors?.required">
+                The field owner is required
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label for="car" class="col-md-3 col-form-label">Car</label>
+          <div class="col-md-9">
+            <app-car-one formControlName="car"></app-car-one>
+            <span class="text-danger" *ngIf="car.errors?.required">
+              The field car is required
+            </span>
+          </div>
+        </div>
+
+      </form>
+
+      <div class="row mt-4">
+        <div class="offset-md-2 col-md2">
+          <button class="btn btn-block btn-primary"
+            (click)="save()">
+            Save
+          </button>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-block btn-primary"
+            (click)="disableAll()"
+            >
+            Disble All
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
