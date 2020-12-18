@@ -26,9 +26,21 @@ export class Example01Component implements OnInit {
     });
   }
 
+  initForm() {
+    this.miForm.setValue({ owner: '', car: ''});
+    this.miForm.markAsPristine();
+    this.miForm.markAsUntouched();
+  }
+
   public disableAll() {
     Object.keys(this.miForm.controls).forEach(
       key => this.miForm.get(key).disable()
+    );
+  }
+
+  public enableAll() {
+    Object.keys(this.miForm.controls).forEach(
+      key => this.miForm.get(key).enable()
     );
   }
 

@@ -36,24 +36,17 @@
       </form>
 
       <div class="row mt-4">
-        <div class="offset-md-2 col-md2">
+        <div class="offset-md-4 col-md-4">
           <button class="btn btn-block btn-primary"
             (click)="save()">
             Save
-          </button>
-        </div>
-        <div class="col-md-2">
-          <button class="btn btn-block btn-primary"
-            (click)="disableAll()"
-            >
-            Disble All
           </button>
         </div>
       </div>
     </div>
 
     <div class="col-4"> <!-- Log Form properties -->
-      <div class="card">
+      <div class="row card">
         <div class="card-header bg-info">
           Log Car control
         </div>
@@ -65,6 +58,41 @@
         </div>
       </div>
 
+      <div class="row card">
+        <div class="card-header">
+          Log Form Control
+        </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 px-2">
+                <button class="btn btn-block btn-info my-2"  (click)="initForm()">
+                  Init
+                </button>
+              </div>
+            <div class="col-4 px-2">
+              <button class="btn btn-block btn-info my-2" (click)="enableAll()">
+                Enable
+              </button>
+            </div>
+            <div class="col-4 px-2">
+              <button class="btn btn-block btn-info my-2" (click)="disableAll()">
+                Disable
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p>Dirty: {{miForm.dirty}}</p>
+              <p>Touched: {{miForm.touched}}</p>
+              <p>Valid: {{miForm.valid}}</p>
+              <pre>Value: {{miForm.value | json}}</pre>
+            </div>
+          </div>
+          </div>
+
+
+      </div>
 
     </div>
   </div>
