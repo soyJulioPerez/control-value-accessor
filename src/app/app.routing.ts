@@ -6,9 +6,9 @@ import { NotFoundComponent } from './layout/not-found/not-found.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent },
-  /* { path: 'tdf-customers',
-    loadChildren: () => import('./example01/tdf-customers.module').then(m => m.TdfCustomersModule)
-  }, */
+  { path: 'example01',
+    loadChildren: () => import('./example01/example01.module').then(m => m.Example01Module)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
