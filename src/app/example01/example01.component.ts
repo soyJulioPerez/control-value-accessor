@@ -22,7 +22,7 @@ export class Example01Component implements OnInit {
   ngOnInit() {
     this.miForm = this.fb.group({
       owner: ['', Validators.required],
-      car: ['']
+      car: ['Ford']
     });
   }
 

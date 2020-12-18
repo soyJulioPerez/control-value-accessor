@@ -13,8 +13,10 @@
               required
               formControlName="owner"
               [ngClass]="{'is-invalid': (owner.touched || owner.dirty) && !owner.valid}">
+            <span *ngIf="(owner.touched || owner.dirty) && !owner.valid">
               <span class="text-danger" *ngIf="owner.errors?.required">
                 The field owner is required
+              </span>
             </span>
           </div>
         </div>
@@ -23,8 +25,10 @@
           <label for="car" class="col-md-3 col-form-label">Car</label>
           <div class="col-md-9">
             <app-car-one formControlName="car"></app-car-one>
-            <span class="text-danger" *ngIf="car.errors?.required">
-              The field car is required
+            <span *ngIf="(car.touched || car.dirty) && !car.valid">
+              <span class="text-danger" *ngIf="car.errors?.required">
+                The field car is required
+              </span>
             </span>
           </div>
         </div>
@@ -47,5 +51,21 @@
         </div>
       </div>
     </div>
+
+    <div class="col-4"> <!-- Log Form properties -->
+      <div class="card">
+        <div class="card-header">
+          Car Control
+        </div>
+        <div class="card-body">
+          <p>Value: {{car.value}}</p>
+          <p>Touched: {{car.touched}}</p>
+          <p>Dirty: {{car.dirty}}</p>
+          <pre>Error: {{car.errors | json}}</pre>
+        </div>
+      </div>
+
+    </div>
   </div>
+
 </div>
