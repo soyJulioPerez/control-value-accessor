@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-4">
+    <button class="btn btn-block btn-danger"
+      [disabled]="isDisable"
+      (click)="sub()">
+      -
+    </button>
+  </div>
+  <div class="col-4 text-center">
+    {{ currentValue }}
+  </div>
+  <div class="col-4">
+    <button class="btn btn-block btn-success"
+      [disabled]="isDisable"
+      (click)="add()">
+      +
+    </button>
+  </div>
+</div>

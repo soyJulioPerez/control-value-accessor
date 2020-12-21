@@ -1,0 +1,122 @@
+<div class="card">
+  <div class="card-header">
+    Example02: Counter
+  </div>
+
+  <div class="card-body row">
+    <div class="col-8 border-right">
+      <form novalidate [formGroup]="miForm">
+
+        <div class="form-group row mb-2"> <!-- Name -->
+          <label for="owner" class="col-md-3 col-form-label">Name</label>
+          <div class="col-md-9">
+            <input type="text" class="form-control"
+              required
+              formControlName="name"
+              [ngClass]="{'is-invalid': (name.touched || name.dirty) && !name.valid}">
+            <span *ngIf="(name.touched || name.dirty) && !name.valid">
+              <span class="text-danger" *ngIf="name.errors?.required">
+                The field owner is required
+              </span>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2"> <!-- Category -->
+          <label for="category" class="col-md-3 col-fom-laber">Category</label>
+          <div class="col-md-9">
+            <select class="form-control"
+              formControlName="category">
+              <option value="" disabled selected hidden>Select a Category...</option>
+              <option value="option1">option1</option>
+              <option value="option2">option2</option>
+              <option value="option3">option3</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row mb-2"> <!-- Quantity (Counter component) -->
+          <label for="category" class="col-md-3 col-fom-laber">Cantidad</label>
+          <div class="col-md-9">
+            <app-counter formControlName="quantity"></app-counter>
+            <span *ngIf="(quantity.touched || quantity.dirty) && !quantity.valid">
+              <span class="text-danger" *ngIf="quantity.errors?.required">
+                The field name is required
+              </span>
+              <span class="text-danger" *ngIf="quantity.errors?.min">
+                The min quantity is 1
+              </span>
+              <span class="text-danger" *ngIf="quantity.errors?.max">
+                The max quantity is 10
+              </span>
+            </span>
+          </div>
+        </div>
+
+      </form>
+
+      <hr>
+
+      <div class="row mt-4 justify-content-center"> <!-- Save button -->
+        <div class="col-md-3">
+          <button class="btn btn-block btn-primary"
+            (click)="save()">
+            Save
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4"> <!-- Log Form properties -->
+      <div class="row card">
+        <div class="card-header bg-info">
+          Log Quantity control
+        </div>
+        <div class="card-body">
+          <p>Value: {{quantity.value}}</p>
+          <p>Touched: {{quantity.touched}}</p>
+          <p>Dirty: {{quantity.dirty}}</p>
+          <pre>Error: {{quantity.errors | json}}</pre>
+        </div>
+      </div>
+
+      <div class="row card">
+        <div class="card-header">
+          Log Form Control
+        </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-4 px-2">
+                <button class="btn btn-block btn-info my-2"  (click)="initForm()">
+                  Init
+                </button>
+              </div>
+            <div class="col-4 px-2">
+              <button class="btn btn-block btn-info my-2" (click)="enableAll()">
+                Enable
+              </button>
+            </div>
+            <div class="col-4 px-2">
+              <button class="btn btn-block btn-info my-2" (click)="disableAll()">
+                Disable
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <p>Dirty: {{miForm.dirty}}</p>
+              <p>Touched: {{miForm.touched}}</p>
+              <p>Valid: {{miForm.valid}}</p>
+              <pre>Value: {{miForm.value | json}}</pre>
+            </div>
+          </div>
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
