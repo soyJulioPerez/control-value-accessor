@@ -5,4 +5,10 @@
   <span class="text-danger" *ngIf="formField.errors?.email">
     The field {{ label }} is not a valid email
   </span>
+  <span class="text-danger" *ngIf="formField.errors?.minlength">
+    The min length allow is {{ formField.errors.minlength.requiredLength }}
+  </span>
+  <span class="text-danger" *ngIf="formField.errors?.maxlength">
+    The max length allow is {{ formField.errors.maxlength.requiredLength }}
+  </span>
 </ng-container>

@@ -19,7 +19,7 @@ export class Example03Component implements OnInit {
     this.miForm = this.fb.group({
       name: ['Julio', [Validators.required]],
       email: ['juliolpj@hotmail.com', [Validators.required, Validators.email]],
-      password: ['123456', [Validators.required]]
+      password: ['123456', [Validators.required, Validators.minLength(6), Validators.maxLength(10)]]
     });
   }
 
