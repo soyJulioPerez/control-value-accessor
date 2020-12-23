@@ -9,8 +9,8 @@
       <div class="card-body">
 
         <form novalidate [formGroup]="miForm">
-
-          <div class="form-group row mb-2"> <!-- Name -->
+          <app-form-input formControlName="name"></app-form-input>
+          <!-- <div class="form-group row mb-2">
             <label for="owner" class="col-md-3 col-form-label">Name</label>
             <div class="col-md-9">
               <input type="text" class="form-control"
@@ -23,7 +23,7 @@
                 </span>
               </span>
             </div>
-          </div>
+          </div> -->
 
           <div class="form-group row mb-2"> <!-- Email -->
             <label for="email" class="col-md-3 col-form-label">Email</label>
@@ -63,6 +63,7 @@
           <div class="row mt-4 justify-content-center"> <!-- Save button -->
             <div class="col-md-3">
               <button class="btn btn-block btn-primary"
+              [disabled]="miForm.invalid"
                 (click)="save()">
                 Save
               </button>

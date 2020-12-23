@@ -25,9 +25,9 @@ export class Example03Component implements OnInit {
 
   ngOnInit() {
     this.miForm = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]]
+      name: ['Julio', [Validators.required]],
+      email: ['juliolpj@hotmail.com', [Validators.required, Validators.email]],
+      password: ['123456', [Validators.required]]
     });
   }
 
