@@ -2,4 +2,7 @@
   <span class="text-danger" *ngIf="formField.errors?.required">
     The field {{ label }} is required
   </span>
+  <span class="text-danger" *ngIf="formField.errors?.email">
+    The field {{ label }} is not a valid email
+  </span>
 </ng-container>

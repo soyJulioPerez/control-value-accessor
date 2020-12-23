@@ -9,14 +9,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class Example03Component implements OnInit {
   miForm: FormGroup;
 
-  get name() {
-    return this.miForm.get('name');
-  }
-
-  get email() {
-    return this.miForm.get('email');
-  }
-
   get password() {
     return this.miForm.get('password');
   }
