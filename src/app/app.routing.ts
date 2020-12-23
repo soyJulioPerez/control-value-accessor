@@ -12,6 +12,9 @@ const routes: Routes = [
   { path: 'example02',
     loadChildren: () => import('./example02/example02.module').then(m => m.Example02Module)
   },
+  { path: 'example03',
+    loadChildren: () => import('./example03/example03.module').then(m => m.Example03Module)
+  },
   { path: '**', component: NotFoundComponent }
 ];
 
