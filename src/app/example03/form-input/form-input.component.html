@@ -9,10 +9,9 @@
       (input)="onChange($event.target.value)"
       (blur)="onTouched()"
     >
-    <span *ngIf="(formField.touched || formField.dirty) && !formField.valid">
-      <span class="text-danger" *ngIf="formField.errors?.required">
-        The field {{ label }} is required
-      </span>
-    </span>
+    <app-form-field-error
+      [formField]="formField"
+      [label]="label">
+    </app-form-field-error>
   </div>
 </div>

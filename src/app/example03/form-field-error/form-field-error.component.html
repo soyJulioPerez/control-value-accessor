@@ -1,0 +1,5 @@
+<ng-container *ngIf="(formField?.touched || formField?.dirty) && !formField?.valid">
+  <span class="text-danger" *ngIf="formField.errors?.required">
+    The field {{ label }} is required
+  </span>
+</ng-container>
