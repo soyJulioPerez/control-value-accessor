@@ -9,7 +9,11 @@
       <div class="card-body">
 
         <form novalidate [formGroup]="miForm">
-          <app-form-input formControlName="name"></app-form-input>
+          <app-form-input formControlName="name"
+            [parentForm]="miForm"
+            fieldName="name"
+            label="Name">
+          </app-form-input>
           <!-- <div class="form-group row mb-2">
             <label for="owner" class="col-md-3 col-form-label">Name</label>
             <div class="col-md-9">

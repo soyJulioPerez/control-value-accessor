@@ -1,20 +1,18 @@
 <div class="form-group row mb-2">
-  <label for="owner" class="col-md-3 col-form-label">Name</label>
+  <label [for]="fieldName" class="col-md-3 col-form-label">{{ label }}</label>
   <div class="col-md-9">
     <input type="text" class="form-control"
+      [id]="fieldName"
       [value]="value"
       [disabled]="isDisabled"
+      [ngClass]="{'is-invalid': (formField.touched || formField.dirty) && !formField.valid}"
       (input)="onChange($event.target.value)"
       (blur)="onTouched()"
     >
-    <!-- <input type="text" class="form-control"
-      required
-      formControlName="name"
-      [ngClass]="{'is-invalid': (name.touched || name.dirty) && !name.valid}">
-    <span *ngIf="(name.touched || name.dirty) && !name.valid">
-      <span class="text-danger" *ngIf="name.errors?.required">
-        The field name is required
+    <span *ngIf="(formField.touched || formField.dirty) && !formField.valid">
+      <span class="text-danger" *ngIf="formField.errors?.required">
+        The field {{ label }} is required
       </span>
-    </span> -->
+    </span>
   </div>
 </div>
